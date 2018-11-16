@@ -5,10 +5,10 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 const navigationItems = () => {
   return (
     <ul className={styles.NavigationItems}>
-      <NavigationItem link="/" active>
+      <NavigationItem link="/pokefinder">
         Pokefinder
       </NavigationItem>
-      <NavigationItem link="/">
+      <NavigationItem link="/pokefinder/about">
         About
       </NavigationItem>
     </ul>

@@ -2,7 +2,7 @@
   "name": "pokefinder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://francochoque.github.io/pokefinder/",
+  "homepage": "https://francochoque.github.io/pokefinder",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.6.3",
