@@ -1,1 +1,1 @@
-export { getPokemons } from "./Pokemon/Pokemon";
+export { getPokemons, getPokemonByName } from "./Pokemon/Pokemon";

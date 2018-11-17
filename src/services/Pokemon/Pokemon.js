@@ -5,16 +5,36 @@ export const getPokemons = () => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon/")
       .then(res => {
-        if(res && res.data && res.data.results) {
-            console.log("get-pokemons-service", res);
+        if(res && res.data) {
+            console.log("get-pokemons", res);
             resolve(res.data.results);
         } else {
             reject(res);
         }
       })
       .catch(err => {
-        console.log("get-pokemons-service", err);
+        console.log("get-pokemons", err);
         reject(err);
       });
   });
 };
+
+export const getPokemonByName = (name) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon/" + name)
+      .then(res => {
+        if(res && res.data) {
+            console.log("get-pokemon-by-name", res);
+            resolve(res.data);
+        } else {
+            reject(res);
+        }
+      })
+      .catch(err => {
+        console.log("get-pokemon-by-name", err);
+        reject(err);
+      });
+  });
+};
+
