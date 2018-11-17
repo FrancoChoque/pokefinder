@@ -7,7 +7,7 @@ const toolbar = () => {
     return (
         <header className={styles.Toolbar}>
         <div style={{height: "100%"}}><Logo /></div>
-            <nav><NavigationItems/></nav>
+            <nav><NavigationItems/>El que quiere pokemons, que los busque</nav>
         </header>
     );
 };
