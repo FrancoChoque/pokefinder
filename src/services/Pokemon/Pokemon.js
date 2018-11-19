@@ -22,7 +22,7 @@ export const getPokemons = () => {
 export const getPokemonByName = (name) => {
   return new Promise((resolve, reject) => {
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/" + name)
+      .get("https://pokeapi.co/api/v2/pokemon/" + name + "/")
       .then(res => {
         if(res && res.data) {
             console.log("get-pokemon-by-name", res);
