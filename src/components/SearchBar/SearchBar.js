@@ -11,7 +11,7 @@ const searchBar = props => {
         onChange={event => props.textChanged(event.target.value)}
         onKeyPress={props.onKeyPress}
       />
-      <button title="Buscar" onClick={props.clicked}>
+      <button title="Buscar" onClick={props.clicked} disabled={props.disabled} className={props.disabled ? styles.ButtonDisabled : styles.Button }>
         Buscar
       </button>
     </div>
@@ -20,3 +20,7 @@ const searchBar = props => {
 
 
 export default searchBar;
+
+
+
+

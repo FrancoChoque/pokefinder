@@ -11,17 +11,42 @@
     border: 1px solid grey;
     float: left;
     width: 80%;
+    border-radius: 10px;
     background: #f1f1f1;
 }
 
-.SearchBar button {
+.SearchBar input:focus {
+    outline: none;
+    box-shadow: 0px 0px 2px #4850bb;
+  }
+  
+
+.Button {
     float: left;
     width: 20%;
     padding: 10px;
-    background: #2196F3;
+    margin: 0 5px;
+    background: #4850bb;
     color: white;
     font-size: 17px;
+    box-sizing: border-box;
     border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
+    border-left: none;
     cursor: pointer;
+    border-radius: 10px;
+}
+
+.ButtonDisabled {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    margin: 0 5px;
+    background: #aaaaaa;
+    color: white;
+    font-size: 17px;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 10px;
 }

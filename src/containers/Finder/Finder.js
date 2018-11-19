@@ -1,19 +1,25 @@
 import React, { Component } from "react";
-import SearchResult from "../../components/SearchResult/SearchResult";
 import { getPokemons, getPokemonByName } from "../../services/index";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Pokemons from "../../components/Pokemons/Pokemons";
+import PokeSpinner from "../../components/UI/Spinner/Spinner";
+import styles from "./Finder.module.css";
 
 class Finder extends Component {
   state = {
     pokemons: [],
-    results: [],
+    results: null,
+    hits: 0,
+    clickedSearch: false,
     searchField: ""
   };
+
+  searchedText = "";
 
   componentDidMount = async () => {
     try {
       const res = await getPokemons();
-      this.setState({ pokemons: res, results: res });
+      this.setState({ pokemons: res });
     } catch (error) {
       alert("an error ocurred");
     }
@@ -21,35 +27,64 @@ class Finder extends Component {
 
   searchPokemonHandler = async () => {
     try {
+      this.setState({ results: [], clickedSearch: true, hits: 0 });
+      this.searchedText = this.state.searchField;
       const matches = this.state.pokemons.filter(each =>
-        each.name.includes(this.state.searchField)
+        each.name.includes(this.state.searchField.toLocaleLowerCase())
       );
-      this.setState({results: matches});
-    
+      console.log(matches);
+      const results = [];
+      for (let each of matches) {
+        const res = await getPokemonByName(each.name);
+        results.push(res);
+        this.setState(prevState => {
+          return {
+            ...prevState,
+            hits: prevState.hits + 1
+          };
+        });
+      }
+      this.setState({ results: [...results], clickedSearch: false });
     } catch (error) {
-      console.log(error);
       alert("an error ocurred");
+      this.setState({ clickedSearch: false });
     }
   };
 
   searchTextHandler = text => {
-    console.log("text");
     this.setState({ searchField: text });
   };
 
-  keyPressHandler = (e) => {
+  keyPressHandler = e => {
     if (e.key === "Enter") {
       this.searchPokemonHandler();
     }
-  }
+  };
 
   render() {
-    let searchResults = null;
+    let searchResults = this.state.clickedSearch ? (
+      <PokeSpinner hits={this.state.hits} />
+    ) : (
+      <p className={styles.Info}>
+        El que quiere Pokemons, que los busque
+      </p>
+    );
 
-    if (this.state.results) {
-      searchResults = this.state.results.map((each, index) => (
-        <SearchResult key={index} name={each.name} />
-      ));
+    if (this.state.results && !this.state.clickedSearch) {
+      searchResults = this.state.results.length ? (
+        <>
+          <p className={styles.Info}>
+            Resultados de la búsqueda "{this.searchedText}" - {this.state.hits}{" "}
+            coincidencias
+          </p>
+          <Pokemons data={this.state.results} />
+        </>
+      ) : (
+        <p className={styles.Info}>
+          No se encontró ningún Pokemon cuyo nombre contenga:{" "}
+          "{this.searchedText}"
+        </p>
+      );
     }
 
     return (
@@ -60,8 +95,11 @@ class Finder extends Component {
           clicked={this.searchPokemonHandler}
           onKeyPress={e => this.keyPressHandler(e)}
           placeholder={"Nombre del pokemon..."}
+          disabled={this.state.clickedSearch}
         />
+        <div className={styles.Container}>
         {searchResults}
+        </div>
       </>
     );
   }

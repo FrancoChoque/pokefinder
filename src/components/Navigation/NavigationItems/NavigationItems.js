@@ -8,9 +8,6 @@ const navigationItems = () => {
       <NavigationItem link="/">
         Pokefinder
       </NavigationItem>
-      <NavigationItem link="/about">
-        About
-      </NavigationItem>
     </ul>
   );
 };

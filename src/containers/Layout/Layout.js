@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
-import styles from "./Layout.module.css";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
+import Footer from "../../components/Navigation/Footer/Footer";
+import styles from "./Layout.module.css";
 
 export class Layout extends Component {
   state = {
@@ -22,7 +23,7 @@ export class Layout extends Component {
 
   render() {
     return (
-      <>
+      <div className={styles.Container}>
         <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
         <SideDrawer
           closed={this.sideDrawerClosedHandler}
@@ -30,7 +31,8 @@ export class Layout extends Component {
           toggle={this.sideDrawerToggleHandler}
         />
         <main className={styles.content}>{this.props.children}</main>
-      </>
+        <Footer />
+      </div>
     );
   }
 }
