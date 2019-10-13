@@ -1,0 +1,27 @@
+.Stat {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+.Stat p {
+  margin: 5px;
+}
+
+@media(max-width: 600px) {
+  .Stat {
+    width: 70px;
+  } 
+  .Stat p {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 400px) {
+  .Stat {   
+    width: 50px;
+  }
+  
+  .Stat p {
+    font-size: 12px;
+  }
+}

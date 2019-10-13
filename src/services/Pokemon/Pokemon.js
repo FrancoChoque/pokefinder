@@ -3,7 +3,7 @@ import axios from "axios";
 export const getPokemons = () => {
   return new Promise((resolve, reject) => {
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/")
+      .get("https://pokeapi.co/api/v2/pokemon?limit=2000")
       .then(res => {
         if(res && res.data) {
             console.log("get-pokemons", res);
