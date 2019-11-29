@@ -26,25 +26,25 @@ class Finder extends Component {
   };
 
   searchPokemonHandler = async () => {
+    this.setState({ results: [], clickedSearch: true, hits: 0 });
+    this.searchedText = this.state.searchField;
+    const matches = this.state.pokemons.filter(each =>
+      each.name.includes(this.state.searchField.toLocaleLowerCase())
+    );
+    const results = [];
+    for (let each of matches) {
+      const res = getPokemonByName(each.name);
+      results.push(res);
+      this.setState(prevState => {
+        return {
+          ...prevState,
+          hits: prevState.hits + 1
+        };
+      });
+    }
     try {
-      this.setState({ results: [], clickedSearch: true, hits: 0 });
-      this.searchedText = this.state.searchField;
-      const matches = this.state.pokemons.filter(each =>
-        each.name.includes(this.state.searchField.toLocaleLowerCase())
-      );
-      console.log(matches);
-      const results = [];
-      for (let each of matches) {
-        const res = await getPokemonByName(each.name);
-        results.push(res);
-        this.setState(prevState => {
-          return {
-            ...prevState,
-            hits: prevState.hits + 1
-          };
-        });
-      }
-      this.setState({ results: [...results], clickedSearch: false });
+      const finalResult = await Promise.all(results);
+      this.setState({ results: [...finalResult], clickedSearch: false });
     } catch (error) {
       alert("an error ocurred");
       this.setState({ clickedSearch: false });

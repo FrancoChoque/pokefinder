@@ -14,7 +14,7 @@ const sideDrawer = props => {
       <>
         <Backdrop show={props.opened} clicked={props.closed} />
         <div className={attachedClasses.join(' ')}>
-          <div style={{ height: "11%", marginBottom: 32 }}>
+          <div style={{ height: "8%" }}>
             <Logo style={{height: "100%"}} clicked={props.toggle}/>
           </div>
           <nav>
