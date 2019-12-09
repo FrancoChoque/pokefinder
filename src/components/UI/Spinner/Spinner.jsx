@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./Spinner.module.css";
+import React from 'react';
+import styles from './Spinner.module.css';
 
-const pokeSpinner = (props) => {
+const PokeSpinner = props => {
   return (
     <div className={styles.Spinner}>
       <div className={styles.CenterOnPage}>
@@ -15,4 +15,4 @@ const pokeSpinner = (props) => {
   );
 };
 
-export default pokeSpinner;
+export default PokeSpinner;

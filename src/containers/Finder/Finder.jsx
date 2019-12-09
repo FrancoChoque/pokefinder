@@ -1,27 +1,29 @@
-import React, { Component } from "react";
-import { getPokemons, getPokemonByName } from "../../services/index";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import Pokemons from "../../components/Pokemons/Pokemons";
-import PokeSpinner from "../../components/UI/Spinner/Spinner";
-import styles from "./Finder.module.css";
+import React, { Component } from 'react';
+import { getPokemons, getPokemonByName } from '../../services/index';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import Pokemons from '../../components/Pokemons/Pokemons';
+import PokeSpinner from '../../components/UI/Spinner/Spinner';
+import styles from './Finder.module.css';
 
 class Finder extends Component {
-  state = {
-    pokemons: [],
-    results: null,
-    hits: 0,
-    clickedSearch: false,
-    searchField: ""
-  };
-
-  searchedText = "";
+  constructor(props) {
+    super(props);
+    this.state = {
+      pokemons: [],
+      results: null,
+      hits: 0,
+      clickedSearch: false,
+      searchField: '',
+    };
+    this.searchedText = '';
+  }
 
   componentDidMount = async () => {
     try {
       const res = await getPokemons();
       this.setState({ pokemons: res });
     } catch (error) {
-      alert("an error ocurred");
+      alert('an error ocurred');
     }
   };
 
@@ -29,7 +31,7 @@ class Finder extends Component {
     this.setState({ results: [], clickedSearch: true, hits: 0 });
     this.searchedText = this.state.searchField;
     const matches = this.state.pokemons.filter(each =>
-      each.name.includes(this.state.searchField.toLocaleLowerCase())
+      each.name.includes(this.state.searchField.toLocaleLowerCase()),
     );
     const results = [];
     for (let each of matches) {
@@ -38,7 +40,7 @@ class Finder extends Component {
       this.setState(prevState => {
         return {
           ...prevState,
-          hits: prevState.hits + 1
+          hits: prevState.hits + 1,
         };
       });
     }
@@ -46,7 +48,7 @@ class Finder extends Component {
       const finalResult = await Promise.all(results);
       this.setState({ results: [...finalResult], clickedSearch: false });
     } catch (error) {
-      alert("an error ocurred");
+      alert('an error ocurred');
       this.setState({ clickedSearch: false });
     }
   };
@@ -56,7 +58,7 @@ class Finder extends Component {
   };
 
   keyPressHandler = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       this.searchPokemonHandler();
     }
   };
@@ -65,24 +67,20 @@ class Finder extends Component {
     let searchResults = this.state.clickedSearch ? (
       <PokeSpinner hits={this.state.hits} />
     ) : (
-      <p className={styles.Info}>
-        El que quiere Pokemons, que los busque
-      </p>
+      <p className={styles.Info}>El que quiere Pokemons, que los busque</p>
     );
 
     if (this.state.results && !this.state.clickedSearch) {
       searchResults = this.state.results.length ? (
         <>
           <p className={styles.Info}>
-            Resultados de la búsqueda "{this.searchedText}" - {this.state.hits}{" "}
-            coincidencias
+            Resultados de la búsqueda "{this.searchedText}" - {this.state.hits} coincidencias
           </p>
           <Pokemons data={this.state.results} />
         </>
       ) : (
         <p className={styles.Info}>
-          No se encontró ningún Pokemon cuyo nombre contenga:{" "}
-          "{this.searchedText}"
+          No se encontró ningún Pokemon cuyo nombre contenga: "{this.searchedText}"
         </p>
       );
     }
@@ -94,12 +92,10 @@ class Finder extends Component {
           textChanged={text => this.searchTextHandler(text)}
           clicked={this.searchPokemonHandler}
           onKeyPress={e => this.keyPressHandler(e)}
-          placeholder={"Nombre del pokemon..."}
+          placeholder={'Nombre del pokemon...'}
           disabled={this.state.clickedSearch}
         />
-        <div className={styles.Container}>
-        {searchResults}
-        </div>
+        <div className={styles.Container}>{searchResults}</div>
       </>
     );
   }

@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import './i18n';
+import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from "react-router-dom";
 
 const app = (
-    <BrowserRouter basename="pokefinder">
-        <App />
-    </BrowserRouter>
-)
+  <BrowserRouter basename="pokefinder">
+    <App />
+  </BrowserRouter>
+);
 
 ReactDOM.render(app, document.getElementById('root'));
 
