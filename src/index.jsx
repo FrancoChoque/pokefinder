@@ -7,7 +7,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 const app = (
-  <BrowserRouter basename="pokefinder">
+  <BrowserRouter>
     <App />
   </BrowserRouter>
 );
