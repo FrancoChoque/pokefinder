@@ -1,4 +1,17 @@
 {
+  "COMMON": {
+    "REPO_LINK": "Link al repo"
+  },
+  "POKEMON_PREVIEW": {
+    "STATS": {
+      "ATTACK": "Ataque",
+      "DEFENSE": "Defensa",
+      "HP": "HP",
+      "SP_ATTACK": "ATQ.ESP",
+      "SP_DEFENSE": "DEF.ESP",
+      "SPEED": "Velocidad"
+    }
+  },
   "SEARCH_BAR": {
     "BUTTON": "Search",
     "PLACEHOLDER": "Pokemon Name"

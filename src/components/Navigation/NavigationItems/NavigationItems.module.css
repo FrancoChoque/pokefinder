@@ -1,17 +1,29 @@
 .NavigationItems {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 100%;
+}
+
+.NavigationItems li {
+  width: 100%;
+}
+
+.NavigationItems li span {
+  margin: 20px;
+}
+
+.NavigationItems li span:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 500px) {
-    .NavigationItems {        
-        list-style: none;        
-        flex-flow: row;        
-        height: 100%;
-    }   
+  .NavigationItems {
+    list-style: none;
+    flex-flow: row;
+    height: 100%;
+  }
 }

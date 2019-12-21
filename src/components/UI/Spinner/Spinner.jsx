@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Spinner.module.css';
 
-const PokeSpinner = props => {
+const PokeSpinner = ({ hits }) => {
   return (
     <div className={styles.Spinner}>
       <div className={styles.CenterOnPage}>
@@ -9,10 +10,18 @@ const PokeSpinner = props => {
           <div className={styles.PokeballButton} />
         </div>
         <p>Buscando Pokemons</p>
-        <p>{props.hits} pokemons encontrados</p>
+        <p>{hits} pokemons encontrados</p>
       </div>
     </div>
   );
+};
+
+PokeSpinner.propTypes = {
+  hits: PropTypes.number,
+};
+
+PokeSpinner.defaultProps = {
+  hits: '',
 };
 
 export default PokeSpinner;

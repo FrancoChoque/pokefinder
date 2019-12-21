@@ -5,7 +5,7 @@ import Finder from './containers/Finder/Finder';
 import Logo from './components/Logo/Logo';
 
 const App = () => (
-  <Suspense fallback={Logo}>
+  <Suspense fallback={null}>
     <div className="App">
       <Layout>
         <Switch>
