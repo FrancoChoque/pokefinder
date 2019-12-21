@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/pokefinder/static/css/main.bfcce15d.chunk.css",
-    "main.js": "/pokefinder/static/js/main.87d855a6.chunk.js",
-    "main.js.map": "/pokefinder/static/js/main.87d855a6.chunk.js.map",
+    "main.css": "/pokefinder/static/css/main.c088a29f.chunk.css",
+    "main.js": "/pokefinder/static/js/main.61e8c621.chunk.js",
+    "main.js.map": "/pokefinder/static/js/main.61e8c621.chunk.js.map",
     "runtime-main.js": "/pokefinder/static/js/runtime-main.8b6f642f.js",
     "runtime-main.js.map": "/pokefinder/static/js/runtime-main.8b6f642f.js.map",
-    "static/js/2.6d70c657.chunk.js": "/pokefinder/static/js/2.6d70c657.chunk.js",
-    "static/js/2.6d70c657.chunk.js.map": "/pokefinder/static/js/2.6d70c657.chunk.js.map",
+    "static/js/2.a013fbb4.chunk.js": "/pokefinder/static/js/2.a013fbb4.chunk.js",
+    "static/js/2.a013fbb4.chunk.js.map": "/pokefinder/static/js/2.a013fbb4.chunk.js.map",
     "index.html": "/pokefinder/index.html",
-    "precache-manifest.a6863624a5a28ddd97c02afaa9422f73.js": "/pokefinder/precache-manifest.a6863624a5a28ddd97c02afaa9422f73.js",
+    "precache-manifest.18983b41394d9ff3f707b95bf3e7c52b.js": "/pokefinder/precache-manifest.18983b41394d9ff3f707b95bf3e7c52b.js",
     "service-worker.js": "/pokefinder/service-worker.js",
-    "static/css/main.bfcce15d.chunk.css.map": "/pokefinder/static/css/main.bfcce15d.chunk.css.map",
-    "static/js/2.6d70c657.chunk.js.LICENSE": "/pokefinder/static/js/2.6d70c657.chunk.js.LICENSE",
+    "static/css/main.c088a29f.chunk.css.map": "/pokefinder/static/css/main.c088a29f.chunk.css.map",
+    "static/js/2.a013fbb4.chunk.js.LICENSE": "/pokefinder/static/js/2.a013fbb4.chunk.js.LICENSE",
     "static/media/logo.png": "/pokefinder/static/media/logo.9ba5bec6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.8b6f642f.js",
-    "static/js/2.6d70c657.chunk.js",
-    "static/css/main.bfcce15d.chunk.css",
-    "static/js/main.87d855a6.chunk.js"
+    "static/js/2.a013fbb4.chunk.js",
+    "static/css/main.c088a29f.chunk.css",
+    "static/js/main.61e8c621.chunk.js"
   ]
 }
