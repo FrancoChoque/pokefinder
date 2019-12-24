@@ -7,6 +7,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // have a look at the Quick start guide
 // for passing in lng and translations on init
 
+const path = process.env.NODE_ENV === 'development' ? '' : 'pokefinder';
+
 i18n
   // load translation using xhr -> see /public/locales
   // learn more: https://github.com/i18next/i18next-xhr-backend
@@ -22,7 +24,7 @@ i18n
     fallbackLng: 'en',
     debug: true,
     backend: {
-      loadPath: '/pokefinder/locales/{{lng}}/{{ns}}.json',
+      loadPath: `${path}/locales/{{lng}}/{{ns}}.json`,
     },
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
