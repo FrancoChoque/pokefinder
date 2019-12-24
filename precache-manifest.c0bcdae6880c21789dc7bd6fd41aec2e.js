@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e726da3af38c5c5ab32e5ebbf2d8477a",
+    "revision": "1223dd56e4f58533ab20e1df448d33ad",
     "url": "/pokefinder/index.html"
   },
   {
-    "revision": "9923444dd906af3b88c2",
+    "revision": "fb4d7c5fae777e043694",
     "url": "/pokefinder/static/css/main.c088a29f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pokefinder/static/js/2.a013fbb4.chunk.js.LICENSE"
   },
   {
-    "revision": "9923444dd906af3b88c2",
-    "url": "/pokefinder/static/js/main.61e8c621.chunk.js"
+    "revision": "fb4d7c5fae777e043694",
+    "url": "/pokefinder/static/js/main.dd71eea2.chunk.js"
   },
   {
     "revision": "5aa80ef743b8ddb1f7a2",
