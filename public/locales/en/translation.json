@@ -4,12 +4,12 @@
   },
   "POKEMON_PREVIEW": {
     "STATS": {
-      "ATTACK": "Ataque",
-      "DEFENSE": "Defensa",
+      "ATTACK": "Attack",
+      "DEFENSE": "Defense",
       "HP": "HP",
-      "SP_ATTACK": "ATQ.ESP",
-      "SP_DEFENSE": "DEF.ESP",
-      "SPEED": "Velocidad"
+      "SP_ATTACK": "SP.ATK",
+      "SP_DEFENSE": "SP.DEF",
+      "SPEED": "Speed"
     }
   },
   "SEARCH_BAR": {

@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import styles from './SearchBar.module.css';
 
 const SearchBar = props => {
   const { t } = useTranslation();
-  const { clicked, disabled, onKeyPress, placeholder, suggestions, text, textChanged } = props;
+  const [searchText, changeSearchText] = useState('');
+  const { searchPokemon, disabled, placeholder } = props;
 
   return (
     <div className={styles.SearchBar}>
       <input
         type="text"
         placeholder={placeholder}
-        value={text}
-        onChange={event => textChanged(event.target.value)}
-        onKeyPress={onKeyPress}
+        value={searchText}
+        onChange={event => changeSearchText(event.target.value)}
+        onKeyPress={e => {
+          if (e.key === 'Enter') {
+            searchPokemon(searchText);
+          }
+        }}
       />
       <button
         type="button"
-        onClick={clicked}
+        onClick={() => searchPokemon(searchText)}
         disabled={disabled}
         className={disabled ? styles.ButtonDisabled : styles.Button}
       >
@@ -29,23 +34,15 @@ const SearchBar = props => {
 };
 
 SearchBar.propTypes = {
-  clicked: PropTypes.func,
+  searchPokemon: PropTypes.func,
   disabled: PropTypes.bool,
-  onKeyPress: PropTypes.func,
   placeholder: PropTypes.string,
-  suggestions: PropTypes.array,
-  text: PropTypes.string,
-  textChanged: PropTypes.func,
 };
 
 SearchBar.defaultProps = {
-  clicked: () => {},
+  searchPokemon: () => {},
   disabled: false,
-  onKeyPress: () => {},
   placeholder: '',
-  suggestions: [],
-  text: '',
-  textChanged: () => {},
 };
 
 export default SearchBar;

@@ -18,23 +18,15 @@ class Finder extends Component {
     this.searchedText = '';
   }
 
-  componentDidMount = async () => {
-    try {
-      const res = await getPokemons();
-      this.setState({ pokemons: res });
-    } catch (error) {
-      alert('an error ocurred');
-    }
-  };
-
-  searchPokemonHandler = async () => {
+  searchPokemonHandler = async searchedText => {
     this.setState({ results: [], clickedSearch: true, hits: 0 });
-    this.searchedText = this.state.searchField;
     const matches = this.state.pokemons.filter(each =>
-      each.name.includes(this.state.searchField.toLocaleLowerCase()),
+      each.name.includes(searchedText.toLocaleLowerCase()),
     );
     const results = [];
-    for (let each of matches) {
+    console.log(matches);
+
+    /* for (let each of matches) {
       const res = getPokemonByName(each.name);
       results.push(res);
       this.setState(prevState => {
@@ -50,17 +42,7 @@ class Finder extends Component {
     } catch (error) {
       alert('an error ocurred');
       this.setState({ clickedSearch: false });
-    }
-  };
-
-  searchTextHandler = text => {
-    this.setState({ searchField: text });
-  };
-
-  keyPressHandler = e => {
-    if (e.key === 'Enter') {
-      this.searchPokemonHandler();
-    }
+    } */
   };
 
   render() {
@@ -88,11 +70,8 @@ class Finder extends Component {
     return (
       <>
         <SearchBar
-          value={this.state.searchField}
-          textChanged={text => this.searchTextHandler(text)}
-          clicked={this.searchPokemonHandler}
-          onKeyPress={e => this.keyPressHandler(e)}
-          placeholder={'Nombre del pokemon...'}
+          searchPokemon={this.searchPokemonHandler}
+          placeholder="Nombre del pokemon..."
           disabled={this.state.clickedSearch}
         />
         <div className={styles.Container}>{searchResults}</div>

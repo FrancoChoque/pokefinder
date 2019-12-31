@@ -12,11 +12,12 @@
   width: 100%;
 }
 
-.NavigationItems li span {
-  margin: 20px;
+.NavigationItems li img {
+  height: 15px;
+  margin: 5px;
 }
 
-.NavigationItems li span:hover {
+.NavigationItems li img:hover {
   cursor: pointer;
 }
 
