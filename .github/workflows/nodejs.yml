@@ -23,3 +23,5 @@ jobs:
           git config --global user.name "FrancoChoque"
           git remote set-url origin https://${{secrets.ACCESS_TOKEN}}@github.com/FrancoChoque/pokefinder.git
           npm run deploy
+        env:
+          NODE_ENV: production
