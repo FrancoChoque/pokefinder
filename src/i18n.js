@@ -7,7 +7,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // have a look at the Quick start guide
 // for passing in lng and translations on init
 
-const path = process.env.NODE_ENV === 'development' ? '' : 'pokefinder';
+const path = process.env.NODE_ENV === 'development' ? '' : '';
 
 i18n
   // load translation using xhr -> see /public/locales
