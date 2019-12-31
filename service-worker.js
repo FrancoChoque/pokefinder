@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pokefinder/precache-manifest.d7c6d8f8470e0e8198b9e8e908cd1db6.js"
+  "/pokefinder/precache-manifest.23e8cfeffb5d0dfdac59574a2524cdbd.js"
 );
 
 self.addEventListener('message', (event) => {
