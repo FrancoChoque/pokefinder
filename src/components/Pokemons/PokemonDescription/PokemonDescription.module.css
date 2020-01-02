@@ -1,0 +1,39 @@
+.PokemonDescription {
+  width: 50%;
+}
+
+.PokemonDescription h1 {
+  text-transform: capitalize;
+  color: #212121;
+}
+
+.Info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Info p {
+  color: #616161;
+  font-size: 24px;
+  flex: 1;
+}
+
+.Info img {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .PokemonDescription {
+    width: 80%;
+  }
+  .Info {
+    display: flex;
+    flex-direction: column;
+  }
+  .Info p {
+    font-size: 18px;
+  }
+}

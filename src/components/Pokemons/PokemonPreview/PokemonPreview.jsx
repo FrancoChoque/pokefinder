@@ -5,14 +5,18 @@ import { useHistory } from 'react-router-dom';
 import image from '../../../assets/images/unknown.png';
 import Stat from './Stat/Stat';
 import styles from './PokemonPreview.module.css';
+import { getColorByType } from '../../../helpers/PokemonHelper';
 
 const PokemonPreview = ({ pokemon }) => {
   const { t } = useTranslation();
   const history = useHistory();
+  const pokemonType = pokemon.types.find(each => each.slot === 1);
+
   return (
     <div
       role="presentation"
       className={styles.PokemonPreview}
+      style={{ backgroundColor: getColorByType(pokemonType.type.name) }}
       onClick={() => history.push(`/pokemon/${pokemon.name}`)}
     >
       <div className={styles.CardContainer}>

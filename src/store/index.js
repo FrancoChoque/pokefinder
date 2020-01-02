@@ -1,1 +1,1 @@
-export { getPokemonList } from './pokemon/actions';
+export { getPokemonList, getPokemonInfo } from './pokemon/actions';

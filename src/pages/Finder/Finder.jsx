@@ -19,6 +19,7 @@ class Finder extends Component {
   }
 
   searchPokemonHandler = async searchedText => {
+    return;
     this.setState({ results: [], clickedSearch: true, hits: 0 });
     const matches = this.state.pokemons.filter(each =>
       each.name.includes(searchedText.toLocaleLowerCase()),

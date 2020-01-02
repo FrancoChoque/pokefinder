@@ -1,8 +1,9 @@
-import { SET_POKEMONS_LIST } from '../actionTypes';
+import { SET_POKEMONS_LIST, SET_POKEMON } from '../actionTypes';
 
 const initialState = {
   pokemonList: [],
   pokemonPagination: {},
+  pokemon: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +13,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         pokemonList: action.pokemonList,
         pokemonPagination: { ...action.pokemonPagination },
+      };
+
+    case SET_POKEMON:
+      return {
+        ...state,
+        pokemon: { ...action.pokemon },
       };
     default:
       return state;
