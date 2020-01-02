@@ -14,7 +14,7 @@ const PokemonDescription = ({ pokemon }) => {
 
     const name = eachAbility.names.find(each => each.language.name === i18n.language);
     return (
-      <li>
+      <li key={name.name}>
         <strong>{name.name}:</strong> <span>{ability.flavor_text}</span>
       </li>
     );
