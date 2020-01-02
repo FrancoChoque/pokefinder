@@ -1,6 +1,10 @@
 .content {
   margin-top: 72px;
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .Container {
   min-height: 100vh;

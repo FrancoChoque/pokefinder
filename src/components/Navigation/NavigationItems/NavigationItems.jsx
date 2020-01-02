@@ -14,7 +14,6 @@ const NavigationItems = () => {
   return (
     <ul className={styles.NavigationItems}>
       <NavigationItem link="/">PokeTable</NavigationItem>
-      <NavigationItem link="/finder">PokeFinder</NavigationItem>
       <li onClick={() => changeLanguage(SPANISH)} role="presentation">
         <img src={SpainFlag} alt="spanish.png" />
       </li>

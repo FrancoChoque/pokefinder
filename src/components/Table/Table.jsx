@@ -1,9 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 import { useTable, usePagination } from 'react-table';
 import PokemonPreview from '../Pokemons/PokemonPreview/PokemonPreview';
 import styles from './Table.module.css';
+import CustomButton from '../UI/Button/Button';
+import PokeSpinner from '../UI/Spinner/Spinner';
 
 function Table(props) {
   const {
@@ -15,6 +19,7 @@ function Table(props) {
     data,
     pageIndex,
     maxPage,
+    isLoading,
   } = props;
   const { getTableProps, getTableBodyProps, prepareRow, page } = useTable(
     {
@@ -24,36 +29,47 @@ function Table(props) {
     usePagination,
   );
 
+  const { t } = useTranslation();
+
   return (
     <>
-      <div className="pagination">
-        <button type="button" onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </button>{' '}
-        <button type="button" onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </button>{' '}
-        <span>
-          Page{' '}
-          <strong>
-            {pageIndex + 1} of {maxPage}
-          </strong>{' '}
-        </span>
-      </div>
       <table className={styles.Table} {...getTableProps()}>
         <tbody {...getTableBodyProps()}>
-          {page.map(row => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                <td>
-                  <PokemonPreview pokemon={row.original} />
-                </td>
-              </tr>
-            );
-          })}
+          {isLoading ? (
+            <tr>
+              <td>
+                <PokeSpinner />{' '}
+              </td>
+            </tr>
+          ) : (
+            page.map(row => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  <td>
+                    <PokemonPreview pokemon={row.original} />
+                  </td>
+                </tr>
+              );
+            })
+          )}
         </tbody>
       </table>
+      {isLoading ? null : (
+        <div className={styles.Pagination}>
+          <div>
+            <CustomButton type="button" onClick={() => previousPage()} disabled={!canPreviousPage}>
+              {t('TABLE.PREVIOUS')}
+            </CustomButton>{' '}
+            <CustomButton type="button" onClick={() => nextPage()} disabled={!canNextPage}>
+              {t('TABLE.NEXT')}
+            </CustomButton>{' '}
+          </div>
+          <p>
+            <strong>{t('TABLE.PAGE', { current: pageIndex + 1, total: maxPage })}</strong>
+          </p>
+        </div>
+      )}
     </>
   );
 }
@@ -63,6 +79,7 @@ Table.propTypes = {
   canPreviousPage: PropTypes.bool,
   columns: PropTypes.array,
   data: PropTypes.array,
+  isLoading: PropTypes.bool,
   maxPage: PropTypes.number,
   nextPage: PropTypes.func,
   pageIndex: PropTypes.number,
@@ -74,10 +91,15 @@ Table.defaultProps = {
   canPreviousPage: false,
   columns: [],
   data: [],
+  isLoading: false,
   maxPage: 0,
   nextPage: () => {},
   pageIndex: 0,
   previousPage: () => {},
 };
 
-export default Table;
+const mapStateToProps = ({ uiReducer }) => ({
+  isLoading: uiReducer.isLoading,
+});
+
+export default connect(mapStateToProps)(Table);

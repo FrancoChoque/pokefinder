@@ -34,6 +34,23 @@ export const getPokemonByName = name => {
   });
 };
 
+export const getPokemonFormByName = name => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon-form/${name}`)
+      .then(res => {
+        if (res && res.data) {
+          resolve(res.data);
+        } else {
+          reject(res);
+        }
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+};
+
 export const getPokemonSpeciesByName = name => {
   return new Promise((resolve, reject) => {
     axios

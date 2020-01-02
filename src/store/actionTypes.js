@@ -1,4 +1,6 @@
 export const UI_START_LOADING = 'UI_START_LOADING';
 export const UI_STOP_LOADING = 'UI_STOP_LOADING';
 
-export const SET_POKEMONS_LIST = 'GET_POKEMONS_LIST';
+export const SET_POKEMONS_LIST = 'SET_POKEMONS_LIST';
+
+export const SET_POKEMON = 'SET_POKEMON';
