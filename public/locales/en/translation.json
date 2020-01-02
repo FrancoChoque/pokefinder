@@ -13,6 +13,9 @@
       "SPEED": "Speed"
     }
   },
+  "POKEMON": {
+    "ABILITIES": "Abilities"
+  },
   "SEARCH_BAR": {
     "BUTTON": "Search",
     "PLACEHOLDER": "Pokemon Name"

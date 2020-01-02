@@ -5,9 +5,20 @@ import image from '../../../assets/images/unknown.png';
 import styles from './PokemonDescription.module.css';
 
 const PokemonDescription = ({ pokemon }) => {
-  const { i18n } = useTranslation();
-  const text = pokemon.flavor_text_entries.find(each => each.language.name === i18n.language);
+  const { i18n, t } = useTranslation();
+  const text = pokemon.flavor_text_entries.find(entry => entry.language.name === i18n.language);
+  const abilities = pokemon.abilities.map(eachAbility => {
+    const ability = eachAbility.flavor_text_entries.find(
+      each => each.language.name === i18n.language,
+    );
 
+    const name = eachAbility.names.find(each => each.language.name === i18n.language);
+    return (
+      <li>
+        <strong>{name.name}:</strong> <span>{ability.flavor_text}</span>
+      </li>
+    );
+  });
   return (
     <div className={styles.PokemonDescription}>
       <h1>
@@ -16,6 +27,10 @@ const PokemonDescription = ({ pokemon }) => {
       <div className={styles.Info}>
         <img src={pokemon.sprites.front_default || image} alt={pokemon.name} />
         <p>{text.flavor_text}</p>
+      </div>
+      <div className={styles.Abilities}>
+        <h3>{t('POKEMON.ABILITIES')}</h3>
+        <ul>{abilities}</ul>
       </div>
     </div>
   );

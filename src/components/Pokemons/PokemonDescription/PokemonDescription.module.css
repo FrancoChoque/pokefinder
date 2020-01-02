@@ -25,6 +25,10 @@
   flex: 1;
 }
 
+.Abilities ul {
+  list-style-type: none;
+}
+
 @media (max-width: 600px) {
   .PokemonDescription {
     width: 80%;
@@ -35,5 +39,8 @@
   }
   .Info p {
     font-size: 18px;
+  }
+  .Abilities ul {
+    padding: 0;
   }
 }

@@ -1,6 +1,6 @@
 export {
   getPokemons,
   getPokemonByName,
+  getPokemonAbilityByName,
   getPokemonSpeciesByName,
-  getPokemonFormByName,
 } from './Pokemon/Pokemon';
