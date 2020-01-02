@@ -1,6 +1,11 @@
 import { toastr } from 'react-redux-toastr';
 import { uiStartLoading, uiStopLoading } from '../ui/actions';
-import { getPokemons, getPokemonByName, getPokemonSpeciesByName } from '../../services/index';
+import {
+  getPokemons,
+  getPokemonByName,
+  getPokemonSpeciesByName,
+  getPokemonAbilityByName,
+} from '../../services/index';
 import { SET_POKEMONS_LIST, SET_POKEMON } from '../actionTypes';
 import { getParameterByName } from '../../utils/getQueryParams';
 
@@ -44,6 +49,12 @@ export const getPokemonInfo = name => async dispatch => {
       getPokemonSpeciesByName(name),
       getPokemonByName(name),
     ]);
+    const abilitiesPromise = [];
+    pokemonData.abilities.forEach(each => {
+      abilitiesPromise.push(getPokemonAbilityByName(each.ability.name));
+    });
+    const abilities = await Promise.all(abilitiesPromise);
+    pokemonData.abilities = [...abilities];
     dispatch(setPokemon({ ...pokemonSpeciesData, ...pokemonData }));
     dispatch(uiStopLoading());
   } catch (error) {

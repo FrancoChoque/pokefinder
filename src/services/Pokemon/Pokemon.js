@@ -34,10 +34,10 @@ export const getPokemonByName = name => {
   });
 };
 
-export const getPokemonFormByName = name => {
+export const getPokemonAbilityByName = name => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`https://pokeapi.co/api/v2/pokemon-form/${name}`)
+      .get(`https://pokeapi.co/api/v2/ability/${name}`)
       .then(res => {
         if (res && res.data) {
           resolve(res.data);

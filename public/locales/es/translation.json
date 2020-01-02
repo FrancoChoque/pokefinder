@@ -13,6 +13,9 @@
       "SPEED": "Velocidad"
     }
   },
+  "POKEMON": {
+    "ABILITIES": "Abilidades"
+  },
   "SEARCH_BAR": {
     "BUTTON": "Buscar",
     "PLACEHOLDER": "Nombre del Pokemon..."
