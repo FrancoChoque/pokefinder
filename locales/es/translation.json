@@ -1,6 +1,7 @@
 {
   "COMMON": {
-    "REPO_LINK": "Link al repo"
+    "CREATED_BY": "Creado por Franco Choque",
+    "REPO": "Github Repo"
   },
   "POKEMON_PREVIEW": {
     "STATS": {
@@ -15,5 +16,10 @@
   "SEARCH_BAR": {
     "BUTTON": "Buscar",
     "PLACEHOLDER": "Nombre del Pokemon..."
+  },
+  "TABLE": {
+    "NEXT": "Siguiente",
+    "PREVIOUS": "Anterior",
+    "PAGE": "Página {{ current }} de {{ total }} "
   }
 }
